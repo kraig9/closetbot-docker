@@ -2,10 +2,15 @@
 
 
 start container with compose
+
 source ros
+
 source /opt/ros/iron/local_setup.bash
+
 colcon build in closetbot dir
+
 source install/setup.bash
+
 
 
 ## to get rviz and gazebo to show gui on host
@@ -17,12 +22,19 @@ https://www.youtube.com/watch?v=DW7l9LHdK5c
 
 
 Dockerfile needs:
+
     ports:
+    
       - "5901:5901"
+      
     environment:
+    
       - VNC_RESOLUTION=1280x720
+      
       - VNC_PASSWORD=mypassword
+      
       - DISPLAY=host.docker.internal:0.0
+      
 
 
 need to download vcxsrv
