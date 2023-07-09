@@ -1,0 +1,14 @@
+version: '1'
+services:
+  ros-iron:
+    build: .
+    # image: closetbotdocker:1.0
+    command: tail -F anything
+    ports:
+      - "5901:5901"
+    environment:
+      - VNC_RESOLUTION=1280x720
+      - VNC_PASSWORD=mypassword
+      - DISPLAY=host.docker.internal:0.0
+      - LIBGL_ALWAYS_INDIRECT=0
+      - GAZEBO_IP=127.0.0.1
