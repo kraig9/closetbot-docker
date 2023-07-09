@@ -21,7 +21,7 @@ https://www.youtube.com/watch?v=qWuudNxFGOQ&t=816s
 https://www.youtube.com/watch?v=DW7l9LHdK5c
 
 
-Dockerfile needs:
+Dockerfile needs (I don't think the VNC resolution and password are necessary anymore):
 
     ports:
     
