@@ -32,8 +32,12 @@ on next screen, uncheck native opengl, check disable access control
 
 I put these in the docker compose, so I don't think they're necessary anymore.
 ON DOCKER SIDE (or in docker compose file):
+
 I don't think this first display variable is necessary at all.
+
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0 
+
+
 The rest of these are in docker compose file.
 export LIBGL_ALWAYS_INDIRECT=0
 export GAZEBO_IP=127.0.0.1
