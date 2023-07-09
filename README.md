@@ -39,9 +39,13 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 
 
 The rest of these are in docker compose file.
+
 export LIBGL_ALWAYS_INDIRECT=0
+
 export GAZEBO_IP=127.0.0.1
+
 DISPLAY=host.docker.internal:0.0
+
 
 LASTLY COPY THE STL FILES FROM THE DEXARM REPO!!! YOU MIGHT NEED TO SETUP UP A VOLUME MOUNT OR SOMETHING!!!
 https://github.com/Rotrics-Dev/URDF-of-DexArm/tree/main/URDF/STL
