@@ -30,15 +30,14 @@ https://sourceforge.net/projects/vcxsrv/
 run xlaunch, set -1 option to 0
 on next screen, uncheck native opengl, check disable access control
 
-
-ON DOCKER SIDE:
+I put these in the docker compose, so I don't think they're necessary anymore.
+ON DOCKER SIDE (or in docker compose file):
+I don't think this first display variable is necessary at all.
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0 
+The rest of these are in docker compose file.
 export LIBGL_ALWAYS_INDIRECT=0
 export GAZEBO_IP=127.0.0.1
-
-I don't think you need this one....
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0 
-
-because this makes it work, also in docker compose
 DISPLAY=host.docker.internal:0.0
 
-LASTLY COPY THE STL FILES FROM THE DEXARM REPO!!! YOU MIGHT NEED TO SETUP UP A VOLUME MOUNT OR SOME SHIT!!!
+LASTLY COPY THE STL FILES FROM THE DEXARM REPO!!! YOU MIGHT NEED TO SETUP UP A VOLUME MOUNT OR SOMETHING!!!
+https://github.com/Rotrics-Dev/URDF-of-DexArm/tree/main/URDF/STL
