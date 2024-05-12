@@ -11,10 +11,10 @@ RUN locale  # check for UTF-8 && \
 RUN sudo apt update && sudo apt install -y software-properties-common && \
     sudo add-apt-repository universe
 
-RUN sudo apt update && sudo apt install curl -y && \
-    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+# RUN sudo apt update && sudo apt install curl -y && \
+#     sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
-RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+# RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 RUN sudo apt update && sudo apt install -y \
     python3-flake8-docstrings \
@@ -37,6 +37,7 @@ RUN git clone https://github.com/kraig9/closetbot.git
 WORKDIR /home/closetbot
 
 # fix dependencies before building
+RUN apt install -y curl
 RUN curl -o upstream.repos https://raw.githubusercontent.com/tylerjw/mycobot/main/upstream.repos
 RUN vcs import src < upstream.repos
 RUN rosdep install -r -y --from-paths src --ignore-src
