@@ -49,6 +49,10 @@ RUN apt-get install -y ros-iron-gazebo-ros-pkgs
 RUN apt install -y libpulse-dev pulseaudio  pulseaudio-utils apulse 
 RUN apt install -y libasound2-plugins 
 
+RUN apt install -y ros-iron-joint-trajectory-controller
+RUN apt install -y ros-iron-joint-state-broadcaster
+RUN apt install -y ros-iron-gazebo-plugins
+
 # # build
 # SHELL ["/bin/bash", "-c"]
 # RUN /opt/ros/iron/local_setup.bash 
